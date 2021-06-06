@@ -14,11 +14,12 @@ const particlesOptions = {
     }
   },
   "interactivity": {
+    "detect_on": "window",
     "events": {
-        "onhover": {
-          "enable": true,
-          "mode": "repulse"
-        }
+      "onhover": {
+        "enable": true,
+        "mode": "repulse"
+      }
     }
   }
 }
