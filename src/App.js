@@ -77,7 +77,6 @@ class App extends React.Component {
   }
 
   displayBox = (box) => {
-    console.log(box);
     this.setState({box: box});
   }
 
