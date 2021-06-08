@@ -13,11 +13,12 @@ const ImageLinkForm = ({ onInputChange, onFindPress }) => {
             type='text' 
             onChange={onInputChange}
           />
-          <button 
+          {/* <input 
             className='w-30 grow f4 link ph3 pv2 div black bg-washed-blue'
-          >
-            Choose File
-          </button>
+            type="file" 
+            id="myFile" 
+            name="filename"
+          /> */}
           <button 
             className='w-30 grow f4 link ph3 pv2 div black bg-washed-green' 
             onClick={onFindPress}
