@@ -43,8 +43,25 @@ class App extends React.Component {
       imageUrl: '',
       box: {},
       route: 'signin',
-      isSignedIn: false
+      isSignedIn: false,
+      user: {
+        id: '',
+        name: '',
+        email: '',
+        entries: 0,
+        joined: ''
+      }
     }
+  }
+
+  loadUser = (data) => {
+    this.setState({user: {
+      id: data.id,
+      name: data.name,
+      email: data.email,
+      entries: data.entries,
+      joined: data.joined
+    }})
   }
 
   // When text is input in ImageLinkForm
@@ -104,7 +121,7 @@ class App extends React.Component {
   }
 
   render () {
-    const { isSignedIn, route, imageUrl, box } = this.state;
+    const { isSignedIn, route, imageUrl, box, user } = this.state;
     return (
       <div className="App">
         <Particles
@@ -114,7 +131,7 @@ class App extends React.Component {
         <Navigation isSignedIn={isSignedIn} onRouteChange={this.onRouteChange} />
         {route === 'home' 
           ? <div>
-              <Rank />
+              <Rank name={user.name} entries={user.entries} />
               <ImageLinkForm 
                 onInputChange={this.onInputChange} 
                 onFindPress={this.onFindPress}
@@ -123,8 +140,8 @@ class App extends React.Component {
             </div>
           : (
             route === 'signin'
-            ? <Signin onRouteChange={this.onRouteChange} />
-            : <Register onRouteChange={this.onRouteChange} />
+            ? <Signin onRouteChange={this.onRouteChange} loadUser={this.loadUser} />
+            : <Register onRouteChange={this.onRouteChange} loadUser={this.loadUser} />
           )
         }
       </div>
