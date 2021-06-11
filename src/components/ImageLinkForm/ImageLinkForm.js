@@ -13,12 +13,14 @@ const ImageLinkForm = ({ onInputChange, onFindPress }) => {
             type='text' 
             onChange={onInputChange}
           />
-          {/* <input 
-            className='w-30 grow f4 link ph3 pv2 div black bg-washed-blue'
-            type="file" 
-            id="myFile" 
-            name="filename"
-          /> */}
+          <label 
+            htmlFor="file-upload" 
+            className="custom-file-upload w-30 grow f4 link ph3 pv2 div black bg-washed-blue"
+            // onClick={onFindPress}
+          >
+            Choose File
+          </label>
+          <input id="file-upload" type="file"/>
           <button 
             className='w-30 grow f4 link ph3 pv2 div black bg-washed-green' 
             onClick={onFindPress}
