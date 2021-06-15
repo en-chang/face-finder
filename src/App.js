@@ -1,4 +1,3 @@
-import Clarifai from 'clarifai';
 import Particles from 'react-particles-js';
 import Navigation from './components/Navigation/Navigation';
 import Signin from './components/Signin/Signin';
@@ -8,11 +7,6 @@ import ImageLinkForm from './components/ImageLinkForm/ImageLinkForm';
 import FaceRecognition from './components/FaceRecognition/FaceRecognition';
 import './App.css';
 import React from 'react';
-
-// API used to detect faces
-const app = new Clarifai.App({
-  apiKey: '8ae99686d6794b1a8847f0ebdca3359b'
-});
 
 // Particle effect for background
 const particlesOptions = {
@@ -76,10 +70,14 @@ class App extends React.Component {
     let boxes = []
     let i;
     this.setState({imageUrl: this.state.input})
-    app.models
-      .predict(
-        Clarifai.FACE_DETECT_MODEL, 
-        this.state.input)
+      fetch('http://localhost:3000/imageurl', {
+        method: 'post',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({
+          input: this.state.input
+        })
+      })
+      .then(response => response.json())
       .then(response => {
         if (response) {
           fetch('http://localhost:3000/image', {
