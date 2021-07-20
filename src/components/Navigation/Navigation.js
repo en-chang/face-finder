@@ -1,4 +1,5 @@
 import React from 'react';
+import ProfileIcon from '../Profile/ProfileIcon';
 import logo from './logo.png';
 
 const Navigation = ({ onRouteChange, isSignedIn }) => {
@@ -12,12 +13,15 @@ const Navigation = ({ onRouteChange, isSignedIn }) => {
             width="80"
             height="80"
           />
-          <p
-            onClick={() => onRouteChange('signout')}
-            className='f3 link dim black underline pa3 pointer'
-          >
-            Sign Out
-          </p>
+          <div style={{display: 'flex'}}>
+            <ProfileIcon />
+            <p
+              onClick={() => onRouteChange('signout')}
+              className='f3 link dim black underline pa3 pointer'
+            >
+              Sign Out
+            </p>
+          </div>
         </nav>
       : <nav style={{display: 'flex', justifyContent: 'space-between'}}>
           <img
