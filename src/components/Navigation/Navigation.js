@@ -13,15 +13,7 @@ const Navigation = ({ onRouteChange, isSignedIn }) => {
             width="80"
             height="80"
           />
-          <div style={{display: 'flex'}}>
-            <ProfileIcon />
-            <p
-              onClick={() => onRouteChange('signout')}
-              className='f3 link dim black underline pa3 pointer'
-            >
-              Sign Out
-            </p>
-          </div>
+          <ProfileIcon onRouteChange={onRouteChange} />
         </nav>
       : <nav style={{display: 'flex', justifyContent: 'space-between'}}>
           <img
