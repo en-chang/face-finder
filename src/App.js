@@ -111,7 +111,10 @@ class App extends React.Component {
       fetch('http://localhost:3000/imageurl', {
       // fetch('https://serene-peak-82564.herokuapp.com/imageurl', {
         method: 'post',
-        headers: {'Content-Type': 'application/json'},
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': window.sessionStorage.getItem('token')
+        },
         body: JSON.stringify({
           input: this.state.input
         })
@@ -122,7 +125,10 @@ class App extends React.Component {
           fetch('http://localhost:3000/image', {
           // fetch('https://serene-peak-82564.herokuapp.com/image', {
             method: 'put',
-            headers: {'Content-Type': 'application/json'},
+            headers: {
+              'Content-Type': 'application/json',
+              'Authorization': window.sessionStorage.getItem('token')
+            },
             body: JSON.stringify({
               id: this.state.user.id
             })
@@ -143,22 +149,25 @@ class App extends React.Component {
   }
 
   calculateFaceLocation = (data) => {
-    let faceLocations = []
-    let i;
-    const numberFaces = data.outputs[0].data.regions.length
-    for (i = 0; i < numberFaces; i++) {
-      const clarifaiFace = data.outputs[0].data.regions[i].region_info.bounding_box;
-      const image = document.getElementById('inputimage');
-      const width = Number(image.width);
-      const height = Number(image.height);
-      faceLocations.push({
-        leftCol: clarifaiFace.left_col * width,
-        topRow: clarifaiFace.top_row * height,
-        rightCol: width - (clarifaiFace.right_col * width),
-        bottomRow: height - (clarifaiFace.bottom_row * height)
-      })
+    if (data && data.outputs) {
+      let faceLocations = []
+      let i;
+      const numberFaces = data.outputs[0].data.regions.length
+      for (i = 0; i < numberFaces; i++) {
+        const clarifaiFace = data.outputs[0].data.regions[i].region_info.bounding_box;
+        const image = document.getElementById('inputimage');
+        const width = Number(image.width);
+        const height = Number(image.height);
+        faceLocations.push({
+          leftCol: clarifaiFace.left_col * width,
+          topRow: clarifaiFace.top_row * height,
+          rightCol: width - (clarifaiFace.right_col * width),
+          bottomRow: height - (clarifaiFace.bottom_row * height)
+        })
+      }
+      return (faceLocations);
     }
-    return (faceLocations);
+    return
   }
 
   displayBox = (box) => {
