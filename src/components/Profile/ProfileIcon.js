@@ -1,3 +1,5 @@
+import userIcon from './userIcon.png'
+
 import React from 'react';
 import { 
   Dropdown, 
@@ -22,7 +24,7 @@ class ProfileIcon extends React.Component {
 
   render() {
     return (
-      <div className="pa4 tc">
+      <div className="pa2 tc">
         <Dropdown isOpen={this.state.dropdownOpen} toggle={this.toggle}>
         <DropdownToggle
           tag="span"
@@ -30,8 +32,10 @@ class ProfileIcon extends React.Component {
           aria-expanded={this.state.dropdownOpen}
         >
           <img
-              src="http://tachyons.io/img/logo.jpg"
-              className="br-100 ba h3 w3 dib" alt="avatar" 
+            // src="https://www.w3schools.com/images/lamp.jpg"
+            src={userIcon}
+            alt="avatar"
+            className="br-100 ba h3 w3 dib"
           />
         </DropdownToggle>
           <DropdownMenu className="b--transparent shadow-5" style={{marginLeft: '-6rem', backgroundColor: 'rgba(255, 255, 255, 0.5)'}} >

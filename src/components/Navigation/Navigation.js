@@ -7,7 +7,7 @@ const Navigation = ({ onRouteChange, isSignedIn, toggleModal }) => {
     isSignedIn
       ? <nav style={{display: 'flex', justifyContent: 'space-between'}}>
           <img
-            className='pa3 pointer'
+            className='pa2'
             alt='logo'
             src={logo}
             width="80"
@@ -17,7 +17,7 @@ const Navigation = ({ onRouteChange, isSignedIn, toggleModal }) => {
         </nav>
       : <nav style={{display: 'flex', justifyContent: 'space-between'}}>
           <img
-            className='pa3 pointer'
+            className='pa2'
             alt='logo'
             src={logo}
             width="80"
