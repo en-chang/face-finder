@@ -21,6 +21,13 @@ class Signin extends React.Component {
     window.sessionStorage.setItem('token', token);
   }
 
+  handleKeyPress = (target) => {
+    // Pressing the enter key triggers onSubmitSignIn
+    if(target.charCode === 13) {
+      this.onSubmitSignIn();
+    } 
+  }
+
   onSubmitSignIn = () => {
     fetch('http://localhost:3000/signin', {
     // fetch('https://serene-peak-82564.herokuapp.com/signin', {
@@ -69,6 +76,7 @@ class Signin extends React.Component {
                   name="email-address"  
                   id="email-address"
                   onChange={this.onEmailChange}
+                  onKeyPress={this.handleKeyPress}
                 />
               </div>
               <div className="mv3">
@@ -79,6 +87,7 @@ class Signin extends React.Component {
                   name="password"  
                   id="password"
                   onChange={this.onPasswordChange}
+                  onKeyPress={this.handleKeyPress}
                 />
               </div>
             </fieldset>
