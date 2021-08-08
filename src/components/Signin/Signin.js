@@ -29,8 +29,8 @@ class Signin extends React.Component {
   }
 
   onSubmitSignIn = () => {
-    fetch('http://localhost:3000/signin', {
-    // fetch('https://serene-peak-82564.herokuapp.com/signin', {
+    // fetch('http://localhost:3000/signin', {
+    fetch('https://serene-peak-82564.herokuapp.com/signin', {
       method: 'post',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({
@@ -42,7 +42,8 @@ class Signin extends React.Component {
       .then(data => {
         if (data.userId && data.success === 'true') {
           this.saveAuthTokenInSessions(data.token)
-          fetch(`http://localhost:3000/profile/${data.userId}`, {
+          // fetch(`http://localhost:3000/profile/${data.userId}`, {
+          fetch(`https://serene-peak-82564.herokuapp.com/profile/${data.userId}`, {
               method: 'get',
               headers: {
                 'Content-Type': 'application/json',
