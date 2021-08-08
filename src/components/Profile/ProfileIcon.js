@@ -32,10 +32,9 @@ class ProfileIcon extends React.Component {
           aria-expanded={this.state.dropdownOpen}
         >
           <img
-            // src="https://www.w3schools.com/images/lamp.jpg"
             src={userIcon}
             alt="avatar"
-            className="br-100 ba h3 w3 dib"
+            className="br-100 ba h3 w3 dib pointer"
           />
         </DropdownToggle>
           <DropdownMenu className="b--transparent shadow-5" style={{marginLeft: '-6rem', backgroundColor: 'rgba(255, 255, 255, 0.5)'}} >
