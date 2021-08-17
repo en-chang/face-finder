@@ -5,7 +5,7 @@ const ImageLinkForm = ({ onInputChange, onFindPress }) => {
   return (
     <div>
       <p className='f3'>
-        {`Enter in an image or image URL and we'll find their face!`}
+        {`Enter in an image URL and we'll find their face!`}
       </p>
       <div className='center'>
         <div className='form center pa4 br3 shadow-5'>
