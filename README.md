@@ -4,7 +4,7 @@ I'm using the free version of Heroku, so the site may load with an application e
 
 ## Head over to my portfolio to see a quick video demoing and explaining the project!
 
-https://en-chang.github.io/en-chang
+https://en-chang.github.io/en-chang/#projects
 
 ## Description
 
