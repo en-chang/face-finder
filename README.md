@@ -6,6 +6,12 @@ I'm using the free version of Heroku, so the site may load with an application e
 
 https://en-chang.github.io/en-chang/#projects
 
+## Don't want to register?
+
+I fully understand, so feel free to use this account!\
+Email: test@gmail.com\
+Password: test
+
 ## Description
 
 * Created a full-stack single page application that detects faces via Clarifai’s Machine Learning Face Detection Model.
